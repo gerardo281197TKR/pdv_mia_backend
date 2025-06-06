@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import producto
+from routers import producto,client
 from app.init_db import init_db
 
 app = FastAPI()
@@ -7,6 +7,7 @@ app = FastAPI()
 init_db()
 
 app.include_router(producto.router)
+app.include_router(client.router)
 
 @app.get("/")
 def root():
